@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recrutement — Formateurs Vacataires en Développement</title>
+<meta name="description" content="Institut de formation professionnelle privé — candidature formateur vacataire : POO, web statique et dynamique, front-end / back-end, cloud native.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Formateurs Vacataires en Développement — Postuler">
+<meta property="og:description" content="POO, sites web statiques et dynamiques, front-end / back-end, applications cloud native.">
+<meta property="og:image" content="https://aelbiad-collab.github.io/recrutement-formateur/og-image.jpg">
+<meta property="og:url" content="https://aelbiad-collab.github.io/recrutement-formateur/">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+  :root {
+    --orange: #f97316;
+    --orange-dark: #ea580c;
+    --dark: #1e293b;
+    --gray: #64748b;
+    --bg: #f8fafc;
+    --border: #e2e8f0;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+    color: var(--dark);
+    background: var(--bg);
+    line-height: 1.6;
+  }
+  .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+
+  header.hero {
+    background: linear-gradient(135deg, var(--orange) 0%, var(--orange-dark) 100%);
+    color: #fff;
+    padding: 64px 0 56px;
+    text-align: center;
+  }
+  header.hero .tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    padding: 6px 16px;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    margin-bottom: 20px;
+  }
+  header.hero h1 {
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-weight: 800;
+    margin-bottom: 14px;
+  }
+  header.hero p {
+    font-size: 1.1rem;
+    opacity: 0.95;
+    max-width: 620px;
+    margin: 0 auto;
+  }
+  header.hero .meta {
+    margin-top: 24px;
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    font-size: 0.95rem;
+    opacity: 0.95;
+  }
+
+  section { padding: 56px 0; }
+  h2 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 24px;
+    text-align: center;
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  @media (max-width: 640px) {
+    .skills-grid { grid-template-columns: 1fr; }
+  }
+  .skill-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 28px;
+  }
+  .skill-card h3 {
+    color: var(--orange-dark);
+    font-size: 1.15rem;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .skill-card ul { list-style: none; }
+  .skill-card li {
+    padding: 6px 0 6px 22px;
+    position: relative;
+    color: var(--gray);
+    font-size: 0.95rem;
+  }
+  .skill-card li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--orange);
+    font-weight: 700;
+  }
+
+  .mission-list {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 32px;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .mission-list li {
+    padding: 10px 0 10px 26px;
+    position: relative;
+    color: var(--gray);
+    list-style: none;
+  }
+  .mission-list li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--orange);
+    font-weight: 700;
+  }
+  .mission-list li strong { color: var(--dark); }
+
+  .apply-section { background: #fff; border-top: 1px solid var(--border); }
+  form {
+    max-width: 640px;
+    margin: 0 auto;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px;
+  }
+  @media (max-width: 560px) {
+    form { padding: 22px 16px; }
+  }
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  @media (max-width: 560px) {
+    .form-row { grid-template-columns: 1fr; }
+  }
+  .field { margin-bottom: 18px; }
+  .field > label, .field > .label {
+    display: block;
+    font-size: 0.88rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--dark);
+  }
+  .field .req { color: var(--orange-dark); }
+  .field input[type="text"],
+  .field input[type="tel"],
+  .field input[type="email"],
+  .field select,
+  .field textarea {
+    width: 100%;
+    padding: 11px 14px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-family: inherit;
+    background: #fff;
+    color: var(--dark);
+  }
+  .field input:focus,
+  .field select:focus,
+  .field textarea:focus {
+    outline: none;
+    border-color: var(--orange);
+    box-shadow: 0 0 0 3px rgba(249,115,22,0.15);
+  }
+  .field textarea { resize: vertical; min-height: 80px; }
+
+  .checks {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  @media (max-width: 560px) {
+    .checks { grid-template-columns: 1fr; }
+  }
+  .checks label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 0.92rem;
+    cursor: pointer;
+  }
+  .checks input { accent-color: var(--orange); width: 16px; height: 16px; flex-shrink: 0; }
+
+  .file-drop {
+    border: 2px dashed var(--border);
+    border-radius: 10px;
+    padding: 22px;
+    text-align: center;
+    cursor: pointer;
+    background: #fff;
+    transition: border-color .15s;
+  }
+  .file-drop:hover, .file-drop.dragover { border-color: var(--orange); }
+  .file-drop input[type="file"] { display: none; }
+  .file-drop .hint { color: var(--gray); font-size: 0.85rem; margin-top: 4px; }
+  .file-name {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--orange-dark);
+  }
+
+  button[type="submit"] {
+    width: 100%;
+    background: var(--orange);
+    color: #fff;
+    border: none;
+    padding: 14px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: background .15s;
+  }
+  button[type="submit"]:hover { background: var(--orange-dark); }
+  button[type="submit"]:disabled { opacity: 0.6; cursor: not-allowed; }
+
+  #form-status {
+    margin-top: 16px;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    display: none;
+  }
+  #form-status.success { display: block; background: #dcfce7; color: #166534; }
+  #form-status.error { display: block; background: #fee2e2; color: #991b1b; }
+
+  footer {
+    text-align: center;
+    padding: 32px 0;
+    color: var(--gray);
+    font-size: 0.85rem;
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="container">
+    <span class="tag">NOUS RECRUTONS</span>
+    <h1>Formateurs Vacataires en Développement H/F</h1>
+    <p>Institut de formation professionnelle privé — programmation, développement web et cloud.</p>
+    <div class="meta">
+      <span>📍 Vacation</span>
+      <span>📧 aelbiad@gmail.com</span>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="container">
+    <h2>Modules à animer</h2>
+    <ul class="mission-list">
+      <li><strong>Programmer en orienté objet</strong> — classes, héritage, polymorphisme, bonnes pratiques de conception.</li>
+      <li><strong>Développer des sites web statiques</strong> — HTML, CSS, responsive design, intégration.</li>
+      <li><strong>Développer des sites web dynamiques</strong> — logique côté serveur, bases de données, formulaires.</li>
+      <li><strong>Développement back-end / front-end</strong> — API, frameworks, architecture d'une application web complète.</li>
+      <li><strong>Création d'une application cloud native</strong> — conteneurs, déploiement, services cloud.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>Profil recherché</h2>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <h3>🎓 Expertise &amp; expérience</h3>
+        <ul>
+          <li>Maîtrise technique d'un ou plusieurs des modules ci-dessus</li>
+          <li>Expérience dans la formation professionnelle</li>
+          <li>Pratique du développement en contexte réel (projets, entreprise)</li>
+          <li>Capacité à préparer supports, exercices et évaluations</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <h3>🧠 Qualités pédagogiques</h3>
+        <ul>
+          <li>Pédagogie et sens de la transmission</li>
+          <li>Clarté d'expression et patience</li>
+          <li>Approche pratique, orientée projets</li>
+          <li>Ponctualité et fiabilité sur les vacations</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="apply-section">
+  <div class="container">
+    <h2>Postuler</h2>
+    <form id="apply-form" novalidate>
+      <div class="form-row">
+        <div class="field">
+          <label for="nom">Nom <span class="req">*</span></label>
+          <input type="text" id="nom" name="nom" required>
+        </div>
+        <div class="field">
+          <label for="prenom">Prénom <span class="req">*</span></label>
+          <input type="text" id="prenom" name="prenom" required>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="field">
+          <label for="telephone">Téléphone <span class="req">*</span></label>
+          <input type="tel" id="telephone" name="telephone" required>
+        </div>
+        <div class="field">
+          <label for="email">Email <span class="req">*</span></label>
+          <input type="email" id="email" name="email" required>
+        </div>
+      </div>
+
+      <div class="field">
+        <span class="label">Modules que vous pouvez animer <span class="req">*</span></span>
+        <div class="checks" id="modules">
+          <label><input type="checkbox" name="modules" value="Programmation orientée objet"> Programmation orientée objet</label>
+          <label><input type="checkbox" name="modules" value="Sites web statiques"> Sites web statiques</label>
+          <label><input type="checkbox" name="modules" value="Sites web dynamiques"> Sites web dynamiques</label>
+          <label><input type="checkbox" name="modules" value="Back-end / Front-end"> Back-end / Front-end</label>
+          <label><input type="checkbox" name="modules" value="Application cloud native"> Application cloud native</label>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="field">
+          <label for="experienceFormation">Expérience en formation pro <span class="req">*</span></label>
+          <select id="experienceFormation" name="experienceFormation" required>
+            <option value="">Sélectionner...</option>
+            <option>Aucune</option>
+            <option>Moins d'1 an</option>
+            <option>1 à 3 ans</option>
+            <option>3 à 5 ans</option>
+            <option>Plus de 5 ans</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="statut">Statut actuel <span class="req">*</span></label>
+          <select id="statut" name="statut" required>
+            <option value="">Sélectionner...</option>
+            <option>Formateur indépendant</option>
+            <option>Salarié</option>
+            <option>Freelance / Auto-entrepreneur</option>
+            <option>Enseignant</option>
+            <option>Autre</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="experienceTechnique">Expérience technique (langages, frameworks, cloud) <span class="req">*</span></label>
+        <textarea id="experienceTechnique" name="experienceTechnique" required placeholder="Ex : 6 ans — Java, Python, PHP/Laravel, React, Docker, Azure..."></textarea>
+      </div>
+
+      <div class="field">
+        <label for="experiencePedagogique">Expérience pédagogique <span class="req">*</span></label>
+        <textarea id="experiencePedagogique" name="experiencePedagogique" required placeholder="Ex : 3 ans de vacations en centre de formation — modules animés, publics, volume horaire..."></textarea>
+      </div>
+
+      <div class="field">
+        <span class="label">Disponibilités <span class="req">*</span></span>
+        <div class="checks" id="disponibilites">
+          <label><input type="checkbox" name="disponibilites" value="En semaine (journée)"> En semaine (journée)</label>
+          <label><input type="checkbox" name="disponibilites" value="En semaine (soir)"> En semaine (soir)</label>
+          <label><input type="checkbox" name="disponibilites" value="Samedi"> Samedi</label>
+          <label><input type="checkbox" name="disponibilites" value="À distance"> À distance</label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="lieu">Lieu actuel</label>
+        <input type="text" id="lieu" name="lieu" placeholder="Ville">
+      </div>
+
+      <div class="field">
+        <label for="message">Message (optionnel)</label>
+        <textarea id="message" name="message" placeholder="Motivation, tarif horaire souhaité, précisions..."></textarea>
+      </div>
+
+      <div class="field">
+        <span class="label">CV (PDF ou Word) <span class="req">*</span></span>
+        <div class="file-drop" id="file-drop">
+          <div>📎 Cliquez pour joindre votre CV</div>
+          <div class="hint">PDF ou DOCX, 5 Mo maximum</div>
+          <input type="file" id="cv" name="cv" accept=".pdf,.doc,.docx" required>
+          <div class="file-name" id="file-name"></div>
+        </div>
+      </div>
+
+      <button type="submit" id="submit-btn">Envoyer ma candidature</button>
+      <div id="form-status"></div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    Candidature transmise en toute confidentialité — aelbiad@gmail.com
+  </div>
+</footer>
+
+<script>
+  // Remplacer par l'URL /exec obtenue après déploiement du Google Apps Script
+  // (voir gas/README.md pour la procédure de déploiement).
+  const WEBAPP_URL = 'REMPLACER_PAR_URL_EXEC';
+
+  const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5 Mo
+
+  const form = document.getElementById('apply-form');
+  const fileInput = document.getElementById('cv');
+  const fileDrop = document.getElementById('file-drop');
+  const fileNameEl = document.getElementById('file-name');
+  const statusEl = document.getElementById('form-status');
+  const submitBtn = document.getElementById('submit-btn');
+
+  fileDrop.addEventListener('click', () => fileInput.click());
+  fileInput.addEventListener('change', () => {
+    if (fileInput.files[0]) {
+      fileNameEl.textContent = fileInput.files[0].name;
+    }
+  });
+
+  function fileToBase64(file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(reader.result.split(',')[1]);
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
+  }
+
+  function checkedValues(name) {
+    return Array.from(form.querySelectorAll('input[name="' + name + '"]:checked')).map(el => el.value);
+  }
+
+  function showStatus(type, message) {
+    statusEl.className = type;
+    statusEl.textContent = message;
+  }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    showStatus('', '');
+
+    const requiredIds = ['nom', 'prenom', 'telephone', 'email', 'experienceFormation', 'statut', 'experienceTechnique', 'experiencePedagogique'];
+    for (const id of requiredIds) {
+      const el = document.getElementById(id);
+      if (!el.value.trim()) {
+        showStatus('error', 'Merci de remplir tous les champs obligatoires (*).');
+        el.focus();
+        return;
+      }
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(document.getElementById('email').value.trim())) {
+      showStatus('error', 'Merci de saisir une adresse email valide.');
+      return;
+    }
+    const modules = checkedValues('modules');
+    if (modules.length === 0) {
+      showStatus('error', 'Merci de cocher au moins un module.');
+      return;
+    }
+    const disponibilites = checkedValues('disponibilites');
+    if (disponibilites.length === 0) {
+      showStatus('error', 'Merci d\'indiquer au moins une disponibilité.');
+      return;
+    }
+
+    const file = fileInput.files[0];
+    if (!file) {
+      showStatus('error', 'Merci de joindre votre CV.');
+      return;
+    }
+    if (file.size > MAX_FILE_SIZE) {
+      showStatus('error', 'Le fichier dépasse 5 Mo. Merci de réduire sa taille.');
+      return;
+    }
+    if (WEBAPP_URL.indexOf('REMPLACER_PAR_URL') !== -1) {
+      showStatus('error', "Configuration incomplète : l'URL du formulaire n'a pas été définie.");
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Envoi en cours...';
+
+    try {
+      const cvBase64 = await fileToBase64(file);
+      const payload = {
+        nom: document.getElementById('nom').value.trim(),
+        prenom: document.getElementById('prenom').value.trim(),
+        telephone: document.getElementById('telephone').value.trim(),
+        email: document.getElementById('email').value.trim(),
+        modules: modules.join(', '),
+        experienceFormation: document.getElementById('experienceFormation').value,
+        statut: document.getElementById('statut').value,
+        experienceTechnique: document.getElementById('experienceTechnique').value.trim(),
+        experiencePedagogique: document.getElementById('experiencePedagogique').value.trim(),
+        disponibilites: disponibilites.join(', '),
+        lieu: document.getElementById('lieu').value.trim(),
+        message: document.getElementById('message').value.trim(),
+        cvFileName: file.name,
+        cvMimeType: file.type,
+        cvBase64: cvBase64
+      };
+
+      // Content-Type volontairement omis (texte brut) pour éviter le
+      // préflight CORS que Google Apps Script ne gère pas.
+      await fetch(WEBAPP_URL, {
+        method: 'POST',
+        body: JSON.stringify(payload)
+      });
+
+      showStatus('success', 'Votre candidature a bien été envoyée. Merci, nous reviendrons vers vous rapidement !');
+      form.reset();
+      fileNameEl.textContent = '';
+    } catch (err) {
+      showStatus('error', "Une erreur est survenue lors de l'envoi. Merci de réessayer ou de nous écrire directement à aelbiad@gmail.com.");
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Envoyer ma candidature';
+    }
+  });
+</script>
+
+</body>
+</html>
